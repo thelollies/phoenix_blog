@@ -1,0 +1,10 @@
+<ul class="no-bullet">
+  <%= for post <- Enum.reverse(@posts) do %>
+      <li>
+        <div class="article-entry">
+          <h4 class="subheader"><small><%= get_date(post.date) %></small></h4>
+          <h4><%= link post.title, to: post_path(@conn, :show, post) %></h4>
+        </div>
+      </li>
+  <% end %>
+</ul>

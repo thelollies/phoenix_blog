@@ -1,0 +1,51 @@
+$brown_grey: #585b56;
+$magenta: #fd446b;
+$cream: #ffefc2;
+$beige: #fffce5;
+$sand: #c9c6bb;
+
+.top-bar {
+  background: $brown_grey;
+}
+
+.top-bar .name h1 a {
+  color: $cream;
+  font-family: 'Rock Salt', cursive;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background: $brown_grey;
+  color: $sand;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button):hover {
+  background: $magenta;
+  color: $sand;
+}
+
+.article-entry a {
+  color: $brown_grey;
+}
+
+.article-entry a:hover {
+  color: $magenta;
+}
+
+.link-back a {
+  color: $brown_grey;
+}
+
+.link-back a:hover {
+  color: $magenta;
+}
+
+.date-box {
+  text-align: center;
+  color: $sand;
+}
+
+.blog-post p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+}

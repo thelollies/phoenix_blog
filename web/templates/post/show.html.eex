@@ -1,0 +1,14 @@
+<div class="content">
+  <div class="row">
+    <div class="large-3 column">
+      <h3 class="subheader date-box"><%= get_date(@post.date) %></h3>
+    </div>
+    <div class="large-9 column blog-post">
+      <%= raw @output %>
+    </div>
+  </div>
+</div>
+
+<div class="link-back">
+  <%= link "Back", to: post_path(@conn, :index) %>
+</div>

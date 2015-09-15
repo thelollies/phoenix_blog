@@ -1,0 +1,25 @@
+{
+  "name": "blog",
+  "version": "0.0.0",
+  "homepage": "https://github.com/thelollies/phoenix_blog",
+  "authors": [
+    "thelollies <rorystephenson@gmail.com>"
+  ],
+  "description": "Elixir Blog",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "~5.5.2"
+  },
+  "overrides": {
+    "modernizr": {
+      "main": "modernizr.js"
+    }
+  }
+}
