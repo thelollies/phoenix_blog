@@ -12,8 +12,8 @@ defmodule Blog.Post do
     timestamps
   end
 
-  @required_fields ~w(title content category)
-  @optional_fields ~w( display_date, published_at)
+  @required_fields ~w( title markdown category )
+  @optional_fields ~w( content display_date publish_at)
 
   @doc """
   Creates a changeset based on the `model` and `params`.

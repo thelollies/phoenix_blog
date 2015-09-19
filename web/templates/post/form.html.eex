@@ -1,0 +1,41 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below:</p>
+      <ul>
+        <%= for {attr, message} <- f.errors do %>
+          <li><%= humanize(attr) %> <%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :title, "Title", class: "control-label" %>
+    <%= text_input f, :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :category, "Category", class: "control-label" %>
+    <%= text_input f, :category, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :display_date, "Display date", class: "control-label" %>
+    <%= date_select f, :display_date, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :publish_at, "Publish at", class: "control-label" %>
+    <%= date_select f, :publish_at, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :markdown, "Markdown", class: "control-label" %>
+    <%= textarea f, :markdown, class: "form-control", style: "width: 100%" %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

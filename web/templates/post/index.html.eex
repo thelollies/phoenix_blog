@@ -1,11 +1,14 @@
 <div class='content row'>
   <div class='twelve columns'>
     <%= for post <- Enum.reverse(@posts) do %>
+
       <div class="article-entry">
         <h4><%= link post.title, to: post_path(@conn, :show, post) %></h4>
         <h6 class='subtitle'><%= get_date(post.display_date) %></h6>
+        <%= link "Delete", to: post_path(@conn, :delete, post) %>
       </div>
       <br>
+
     <% end %>
   </div>
 </div>
