@@ -18,6 +18,6 @@ defmodule Blog.Router do
 
     get "/", PostController, :index
 
-    resources "/post", PostController, only: [:index, :show, :new, :create, :update, :delete]
+    resources "/posts", PostController, only: [:index, :show, :new, :create, :edit, :update, :delete]
   end
 end

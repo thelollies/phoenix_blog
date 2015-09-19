@@ -6,7 +6,21 @@ defmodule Blog.PostController do
   plug :scrub_params, "post" when action in [:create, :update]
 
   def index(conn, _params) do
-    posts = Repo.all(Post)
+    base_query = from p in Post,
+     select: p
+
+    full_query = case _params["category"] do
+      "slack" ->
+        from p in base_query,
+        where: p.category == "slack"
+      "code"  ->
+        from p in base_query,
+        where: p.category == "code"
+      _ ->
+          base_query
+    end
+
+    posts = Repo.all(full_query)
     render(conn, "index.html", posts: posts)
   end
 
@@ -16,14 +30,8 @@ defmodule Blog.PostController do
   end
 
   def create(conn, %{"post" => post_params}) do
-    markdown = Dict.get( post_params, "markdown" )
-    content = Earmark.to_html( markdown )
 
-    modified_params = Dict.put( post_params, "content", content )
-
-    # raise ArgumentError, message: "#{inspect modified_params}\n#{inspect post_params}"
-
-    changeset = Post.changeset(%Post{}, modified_params)
+    changeset = Post.changeset(%Post{}, process_markdown( post_params ))
 
     case Repo.insert(changeset) do
       {:ok, _post} ->
@@ -53,7 +61,7 @@ defmodule Blog.PostController do
 
   def update(conn, %{"id" => id, "post" => post_params}) do
     post = Repo.get!(Post, id)
-    changeset = Post.changeset(post, post_params)
+    changeset = Post.changeset(post, process_markdown( post_params ))
 
     case Repo.update(changeset) do
       {:ok, post} ->
@@ -75,5 +83,11 @@ defmodule Blog.PostController do
     conn
     |> put_flash(:info, "Post deleted successfully.")
     |> redirect(to: post_path(conn, :index))
+  end
+
+  defp process_markdown( params ) do
+    markdown = Dict.get( params, "markdown" )
+    content = Earmark.to_html( markdown )
+    Dict.put( params, "content", content )
   end
 end
