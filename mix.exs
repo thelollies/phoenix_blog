@@ -9,6 +9,7 @@ defmodule Blog.Mixfile do
      compilers: [:phoenix] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     aliases: aliases,
      deps: deps]
   end
 
@@ -19,6 +20,12 @@ defmodule Blog.Mixfile do
     [mod: {Blog, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger,
                     :phoenix_ecto, :postgrex, :earmark]]
+  end
+
+  defp aliases do
+    [
+      setup: ["ecto.create", "ecto.migrate", "accumulate"]
+    ]
   end
 
   # Specifies which paths to compile per environment

@@ -24,6 +24,9 @@ config :blog, Blog.Endpoint,
     ]
   ]
 
+# Enable code reloading
+config :phoenix, :code_reloader, true
+
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
 
@@ -38,5 +41,6 @@ config :blog, Blog.Repo,
   username: "postgres",
   password: "postgres",
   database: "blog_dev",
-  hostname: "localhost",
+  hostname: "blog-postgres",
+  port: 5432,
   pool_size: 10
