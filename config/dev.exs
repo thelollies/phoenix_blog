@@ -41,6 +41,6 @@ config :blog, Blog.Repo,
   username: "postgres",
   password: "postgres",
   database: "blog_dev",
-  hostname: "blog-postgres",
+  hostname: "localhost",
   port: 5432,
   pool_size: 10

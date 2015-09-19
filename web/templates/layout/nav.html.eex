@@ -1,17 +1,8 @@
-<nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <h1><a href="/">Blog Name</a></h1>
-    </li>
-    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+<nav class="nav right navbar-links">
+  <ul>
+    <a href="#">Home</a>
+    <li><a href="#">Slack</a></li>
+    <li><a href="#">Code</a></li>
+    <li><a href="#">About</a></li>
   </ul>
-
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li class=""><a href="/">Blog</a></li>
-      <li class=""><a href="http://www.github.com/edubkendo">Code</a></li>
-    </ul>
-  </section>
 </nav>

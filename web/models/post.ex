@@ -2,16 +2,18 @@ defmodule Blog.Post do
   use Blog.Web, :model
 
   schema "posts" do
-    field :title, :string
-    field :file, :string
-    field :basename, :string
-    field :date, Ecto.Date
+    field :title,        :string
+    field :display_date, Ecto.Date
+    field :publish_at,   Ecto.Date
+    field :content,      :string
+    field :markdown,     :string
+    field :category,     :string
 
     timestamps
   end
 
-  @required_fields ~w(title file basename date)
-  @optional_fields ~w()
+  @required_fields ~w(title content category)
+  @optional_fields ~w( display_date, published_at)
 
   @doc """
   Creates a changeset based on the `model` and `params`.

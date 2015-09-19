@@ -3,10 +3,12 @@ defmodule Blog.Repo.Migrations.CreatePost do
 
   def change do
     create table(:posts) do
-      add :title, :string
-      add :file, :string
-      add :basename, :string
-      add :date, :date
+      add :title,        :text
+      add :display_date, :date
+      add :publish_at,   :date
+      add :content,      :text
+      add :markdown,     :text
+      add :category,     :text
 
       timestamps
     end

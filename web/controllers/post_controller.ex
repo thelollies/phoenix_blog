@@ -12,11 +12,15 @@ defmodule Blog.PostController do
 
   def show(conn, %{"id" => id}) do
     post = Repo.get!(Post, id)
-    output = Path.join("posts", post.file)
-      |> File.read!
-      |> Earmark.to_html
-    put_layout(conn, "post.html")
-      |> render "show.html", post: post, output: output
+    # TODO prevent show of unpublished
+    # output = Path.join("posts", post.file)
+    #   |> File.read!
+    #   |> Earmark.to_html
+    put_layout(conn, "app.html")
+      |> render "show.html", post: post
   end
 
+  def new(conn, _params) do
+    render( conn, "new.html")
+  end
 end
