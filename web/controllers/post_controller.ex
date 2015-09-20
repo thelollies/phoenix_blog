@@ -1,11 +1,16 @@
 defmodule Blog.PostController do
   use Blog.Web, :controller
 
+  require IEx
   alias Blog.Post
 
+  plug Blog.Plug.Authenticate when not action in [ :index, :show ]
   plug :scrub_params, "post" when action in [:create, :update]
 
   def index(conn, _params) do
+
+    user = get_session( conn, :current_user )
+
     base_query = from p in Post,
      select: p
 

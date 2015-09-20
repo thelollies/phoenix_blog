@@ -1,0 +1,32 @@
+<div class='content row'>
+  <div class='twelve columns'>
+
+    <% info = get_flash(@conn, :info) %>
+    <%= if info != nil do %>
+      <p class="alert alert-info" role="alert"><%= info %></p>
+    <% end %>
+
+    <% error = get_flash(@conn, :error) %>
+    <%= if error != nil do %>
+      <p class="alert alert-danger" role="alert"><%= error %></p>
+    <% end %>
+
+    <h3>Login</h3>
+    <%= form_for @changeset, session_path(@conn, :create), fn f -> %>
+
+    <div class="form-group">
+      <label>Username</label>
+      <%= text_input f, :username, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <%= password_input f, :password, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= submit "Login", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  </div>
+</div>

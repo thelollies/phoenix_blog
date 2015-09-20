@@ -42,7 +42,8 @@ defmodule Blog.Mixfile do
      {:phoenix_html, "~> 2.1"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:cowboy, "~> 1.0"},
-     {:earmark, "~> 0.1.13"}
+     {:earmark, "~> 0.1.13"},
+     {:comeonin, "~> 1.1.3"}
    ]
   end
 end

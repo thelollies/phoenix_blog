@@ -1,6 +1,6 @@
 <nav class="nav right navbar-links">
   <ul>
-    <a href="#">Home</a>
+    <a href="/">Home</a>
     <li><%= link "Slack", to: post_path(Blog.Endpoint, :index, category: :slack) %></li>
     <li><%= link "Code", to: post_path(Blog.Endpoint, :index, category: :code) %></li>
     <li><a href="#">About</a></li>

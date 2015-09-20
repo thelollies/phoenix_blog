@@ -19,7 +19,6 @@ defmodule Blog.Web do
   def model do
     quote do
       use Ecto.Model
-      
     end
   end
 
@@ -28,6 +27,7 @@ defmodule Blog.Web do
       use Phoenix.Controller
 
       alias Blog.Repo
+      alias Blog.User
       import Ecto.Model
       import Ecto.Query, only: [from: 1, from: 2]
 
