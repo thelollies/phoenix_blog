@@ -1,7 +1,6 @@
 defmodule Blog.PostController do
   use Blog.Web, :controller
 
-  require IEx
   alias Blog.Post
 
   plug Blog.Plug.Authenticate when not action in [ :index, :show ]

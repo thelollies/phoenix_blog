@@ -9,16 +9,28 @@ defmodule Blog.SessionController do
     render conn, changeset: User.changeset( %User{} )
   end
 
-  def create( conn, %{"user" => user_params } ) do
+  def create( conn, params ) do
 
-    user = if is_nil( user_params[ "username" ] ) do
-      nil
+    user_params = params[ "user" ]
+
+    # Produce :ok or :error
+    verified = Recaptcha.verify(conn.remote_ip, params["g-recaptcha-response"])
+
+    if verified == :error do
+      conn
+      |> put_flash( :error, 'Failed reCAPTCHA, try again.' )
+      |> render "new.html", changeset: User.changeset( %User{} )
     else
-      Repo.get_by( User, username: user_params[ "username" ] )
+      user = if is_nil( user_params[ "username" ] ) do
+        nil
+      else
+        Repo.get_by( User, username: user_params[ "username" ] )
+      end
+
+      user
+      |> sign_in( user_params[ "password" ], conn )
     end
 
-    user
-      |> sign_in( user_params[ "password" ], conn )
   end
 
   def delete( conn, _ ) do

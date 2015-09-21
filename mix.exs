@@ -19,7 +19,7 @@ defmodule Blog.Mixfile do
   def application do
     [mod: {Blog, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex, :earmark]]
+                    :phoenix_ecto, :postgrex, :earmark, :recaptcha]]
   end
 
   defp aliases do
@@ -43,7 +43,9 @@ defmodule Blog.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:cowboy, "~> 1.0"},
      {:earmark, "~> 0.1.13"},
-     {:comeonin, "~> 1.1.3"}
+     {:comeonin, "~> 1.1.3"},
+     {:recaptcha, "~> 1.0.0"},
+     {:ibrowse, github: "cmullaparthi/ibrowse", tag: "v4.1.2"}
    ]
   end
 end
