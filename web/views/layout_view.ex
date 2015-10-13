@@ -4,4 +4,5 @@ defmodule Blog.LayoutView do
   def title do
     "Rory Stephenson"
   end
+
 end

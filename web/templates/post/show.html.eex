@@ -1,7 +1,9 @@
 <div class='content row'>
   <div class='twelve columns'>
-    <h1><%= @post.title %></h3>
+    <div class="post-title"><%= @post.title %></div>
     <div class="subtitle"><%= get_date(@post.display_date) %></div>
-    <%= raw @post.content %>
+    <div class="post-content">
+      <%= raw @post.content %>
+    </div>
   </div>
 </div>

@@ -14,9 +14,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
   <!-- CSS -->
   <link rel="stylesheet" href="<%= static_path(@conn, "/css/skeleton/normalize.css") %>">
@@ -24,194 +23,73 @@
 
   <!-- Styles -->
   <style type='text/css'>
-    hr {
-      border: none;
-      color: lightgrey;
-      background-color: #B4B4B4;
-      height: 1px;
-    }
-
     h1, h2, h3, h4, h5, h6, .subtitle{
-      font-family: 'Josefin Sans', sans-serif;
-    }
-
-    h1 {
-      font-size: 4em;
-    }
-
-    p {
       font-family: 'Open Sans', sans-serif;
-      font-size: 1em;
-      word-spacing: 0.1em;
+    }
+
+    .post-title{
+      font-family: 'Open Sans', sans-serif;
+      font-size: 2em;
+    }
+
+    .subtitle{
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.1em;
+    }
+
+    .post-content{
+      margin-top: 1em;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.2em;
+      line-height: 1.7em;
+      word-spacing: 0.18em;
+    }
+
+    .actions{
+      float: right;
+    }
+
+    .actions a{
+      vertical-align: bottom;
+    }
+    .actions form{
+      display: inline-block;
+      vertical-align: bottom;
+      margin-bottom: 0;
     }
 
     .header {
-      font-family: 'Josefin Slab', serif;
-      font-size: 2em;
-      line-height: 1.1em;
-      height: 0.8em;
+      font-family: 'Lato';
+      font-weight: 400;
+      font-size: 3em;
+      color: #333B43;
+      margin-top: 0.2em;
+      margin-bottom: 0.2em;
     }
-
-    .navbar-links{
-      text-align:  right;
-      color:       black;
-      font-family: 'Josefin Slab', serif;
-      line-height: 1em;
-    }
-    .navbar-links a:link{    text-decoration: none; }
-    .navbar-links a:visited{ color: black; }
-    .navbar-links a:hover{   text-decoration: underline; }
-
-    .navdivider{ color: #B4B4B4; }
 
     .container{
-      max-width: 44em;
+      max-width: 55em;
     }
 
-    hr.no-vertical-margin{ margin-top: 0; margin-bottom: 0 }
-
-    .content.row{
-      margin-top: 2.5em;
-    }
-
-    .col-header{
-      height: 1.6em;
-      margin-top: 2.5em;
-      margin-bottom: 2.5em;
-    }
-
-    .pos-relative{ position: relative; }
-    .pos-bottom-right{ position: absolute; bottom: 0; right: 0; }
-
-    /* nav */
-    .nav {
-      position: relative;
-      margin: 20px 0;
-    }
-    .nav ul {
-      margin: 0;
-      padding: 0;
-    }
-    .nav li {
-      margin: 0 5px 10px 0;
-      padding: 0;
-      list-style: none;
-      display: inline-block;
-    }
-
-    .subtitle {
-      position: relative;
-      top: -1em;
-      color: #888888;
-      font-weight: normal;
-    }
-
-    a {
+    a, a:active, a:hover, a:visited{
       text-decoration: none;
-      color: black;
+      color: inherit;
     }
 
-    a:hover {
-      color: #3F3F3F;
-    }
-
-    .nav a {
-      padding: 3px 12px;
-      line-height: 100%;
-    }
-
-    .nav a:hover {
-      color: black;
-    }
-    /* right nav */
-    .nav.right ul {
-      text-align: right;
-    }
-
-    @media screen and (max-width: 700px) {
-      .nav {
-        position: relative;
-        min-height: 40px;
-      }
-      .nav ul {
-        width: 180px;
-        padding: 5px 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        border: solid 1px #aaa;
-        content: 'askjdbfajkshdbf';
-        background: #fff url(images/icon-menu.png) no-repeat 10px 11px;
-        border-radius: 5px;
-        box-shadow: 0 1px 2px rgba(0,0,0,.3);
-      }
-      .nav li {
-        display: none; /* hide all <li> items */
-        margin: 0;
-      }
-      .nav .current {
-        display: block; /* show only current <li> item */
-      }
-      .nav a {
-        display: block;
-        padding: 5px 5px 5px 32px;
-        text-align: left;
-      }
-      .nav .current a {
-        background: none;
-        color: #666;
-      }
-
-      /* on nav hover */
-      .nav ul:hover {
-        background-image: none;
-      }
-      .nav ul:hover li {
-        display: block;
-        margin: 0 0 5px;
-      }
-
-      /* right nav */
-      .nav.right ul {
-        left: auto;
-        right: 0;
-      }
-
-      /* center nav */
-      .nav.center ul {
-        left: 50%;
-        margin-left: -90px;
-      }
-
-    }
   </style>
 </head>
 <body>
 <div class='container'>
+
   <div class='row col-header'>
-    <div class='twelve columns'>
-
-      <div class='one-half column'>
-        <div class='header'>Slack and Code</div>
-      </div>
-
-      <div class='one-half column pos-relative'>
-        <%= render "nav.html" %>
-      </div>
-
+    <div class='header'>
+      <span class="lightgrey">Rory Stephenson</span>
     </div>
   </div>
-
 
   <div class='row'>
-
-    <div class='twelve columns'>
-      <hr class='no-vertical-margin'>
-    </div>
-
+    <%= @inner %>
   </div>
-
-  <%= @inner %>
 
 </div>
 
