@@ -25,6 +25,8 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
  -  [ ] use rds?
  -  [ ] turn all secrets and env config to use env
  -  [ ] [check the deployment guides](http://www.phoenixframework.org/docs/deployment).
+ -  [ ] Make captcha not used in dev.
+ -  [ ] Determine why priv/assets was in .gitignore and move stuff if needed.
  -  [ ] deploy it
 
 ## Connecting to box
