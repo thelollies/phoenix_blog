@@ -13,18 +13,7 @@ defmodule Blog.PostController do
     base_query = from p in Post,
      select: p
 
-    full_query = case _params["category"] do
-      "slack" ->
-        from p in base_query,
-        where: p.category == "slack"
-      "code"  ->
-        from p in base_query,
-        where: p.category == "code"
-      _ ->
-          base_query
-    end
-
-    posts = Repo.all(full_query)
+    posts = Repo.all(base_query)
     render(conn, "index.html", posts: posts)
   end
 
