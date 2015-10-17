@@ -22,63 +22,6 @@
 
   <!-- Styles -->
   <style type='text/css'>
-    h1, h2, h3, h4, h5, h6, .subtitle{
-      font-family: 'Open Sans', sans-serif;
-    }
-
-    body{
-      background-color: #FDFDFD;
-    }
-
-    .post-title{
-      font-family: 'Open Sans', sans-serif;
-      font-size: 2em;
-    }
-
-    .subtitle{
-      font-family: 'Open Sans', sans-serif;
-      font-size: 1.1em;
-    }
-
-    .post-content{
-      margin-top: 1em;
-      font-family: 'Open Sans', sans-serif;
-      font-size: 1.2em;
-      line-height: 1.7em;
-      word-spacing: 0.18em;
-      color: #333;
-    }
-
-    .actions{
-      float: right;
-    }
-
-    .actions a{
-      vertical-align: bottom;
-    }
-    .actions form{
-      display: inline-block;
-      vertical-align: bottom;
-      margin-bottom: 0;
-    }
-
-    .header {
-      font-family: 'Lato';
-      font-weight: 400;
-      font-size: 3em;
-      color: #333B43;
-      margin-top: 0.2em;
-      margin-bottom: 0.2em;
-    }
-
-    .container{
-      max-width: 55em;
-    }
-
-    a, a:active, a:hover, a:visited{
-      text-decoration: none;
-      color: inherit;
-    }
 
   </style>
 </head>

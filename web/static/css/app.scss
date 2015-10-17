@@ -1,51 +1,44 @@
-$brown_grey: #585b56;
-$magenta: #fd446b;
-$cream: #ffefc2;
-$beige: #fffce5;
-$sand: #c9c6bb;
+$content_font: 'Open Sans';
+$header_font:  'Lato';
 
-.top-bar {
-  background: $brown_grey;
+$header_colour: #333B43;
+
+body{
+  background-color: #FDFDFD;
+  font-family: $content_font;
 }
 
-.top-bar .name h1 a {
-  color: $cream;
-  font-family: 'Rock Salt', cursive;
+a, a:active, a:hover, a:visited{
+  text-decoration: none;
+  color: inherit;
+}
+.container{ max-width: 55em; }
+
+.post-title{ font-size: 2em; }
+.subtitle{ font-size: 1.1em; }
+.post-content{
+  margin-top: 1em;
+  font-size: 1.2em;
+  line-height: 1.7em;
+  word-spacing: 0.18em;
+  color: #333;
 }
 
-.top-bar-section li:not(.has-form) a:not(.button) {
-  background: $brown_grey;
-  color: $sand;
+.actions{
+  float: right;
 }
 
-.top-bar-section li:not(.has-form) a:not(.button):hover {
-  background: $magenta;
-  color: $sand;
+.actions form{
+  display: inline-block;
+  vertical-align: bottom;
+  margin-bottom: 0;
 }
 
-.article-entry a {
-  color: $brown_grey;
-}
-
-.article-entry a:hover {
-  color: $magenta;
-}
-
-.link-back a {
-  color: $brown_grey;
-}
-
-.link-back a:hover {
-  color: $magenta;
-}
-
-.date-box {
-  text-align: center;
-  color: $sand;
-}
-
-.blog-post p {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 20px;
-  font-weight: 300;
+.header {
+  font-family: $header_font;
+  font-weight: 400;
+  font-size: 3em;
+  color: $header_colour;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
 }
