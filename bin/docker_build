@@ -1,0 +1,2 @@
+node node_modules/brunch/bin/brunch build --production
+MIX_ENV=prod mix phoenix.digest
