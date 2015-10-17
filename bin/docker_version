@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export IMAGE_NAME=thelollies/elixir-blog
+export IMAGE_VERSION=`cat VERSION | xargs`
