@@ -24,6 +24,7 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
  -  [x] Determine why priv/assets was in .gitignore and move stuff if needed.
  -  [x] Tidy up the Dockerfile so it's bare-bones prod requirements.
  -  [x] Check the [deployment guides](http://www.phoenixframework.org/docs/deployment).
+ -  [ ] Fix hard-coded integer environment variables.
  -  [ ] use rds?
  -  [ ] Deploy it
 
