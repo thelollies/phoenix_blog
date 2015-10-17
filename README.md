@@ -21,11 +21,11 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
  -  [x] Turn all secrets and env config to use env.
  -  [x] Handle accessing post with non existant id (text or wrong id) or unpublished (404).
  -  [x] Make captcha not used in dev.
- -  [ ] Tidy up the Dockerfile so it's bare-bones prod requirements.
+ -  [x] Determine why priv/assets was in .gitignore and move stuff if needed.
+ -  [x] Tidy up the Dockerfile so it's bare-bones prod requirements.
  -  [ ] use rds?
  -  [ ] Check the [deployment guides](http://www.phoenixframework.org/docs/deployment).
- -  [ ] Determine why priv/assets was in .gitignore and move stuff if needed.
- -  [ ] deploy it
+ -  [ ] Deploy it
 
 ## Connecting to box
 

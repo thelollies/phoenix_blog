@@ -11,8 +11,8 @@ ADD . /opt/app/blog/prod
 WORKDIR /opt/app/blog/prod
 
 ENV MIX_ENV prod
-RUN mix deps.get
-RUN mix deps.compile
+RUN mix deps.get --only prod
+RUN mix compile
 
 ENV PORT 4000
 

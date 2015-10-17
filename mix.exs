@@ -24,7 +24,7 @@ defmodule Blog.Mixfile do
 
   defp aliases do
     [
-      setup: ["ecto.create", "ecto.migrate", "accumulate"]
+      setup: ["ecto.create", "ecto.migrate"]
     ]
   end
 

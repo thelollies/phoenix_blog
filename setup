@@ -1,4 +1,4 @@
 #!/bin/bash
 
-mix setup
+mix setup # Run ecto create and migrate
 mix phoenix.server
