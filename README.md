@@ -7,8 +7,8 @@ To start the blog:
   3. Drag in javascript dependencies using `npm install`.
   4. Copy dev.secret.exs.example to dev.secret.exs and fill it in.
   5. Set up an admin User for yourself:
-    ```elixir
-     Blog.Repo.insert(User.changeset(%User{}, %{ username: "rory", role: "admin", password: "password", password_confirmation: "password"}))
+    ```
+     Blog.Repo.insert(Blog.User.changeset(%User{}, %{ username: "rory", role: "admin", password: "password", password_confirmation: "password"}))
      ```
   6. Start Phoenix endpoint with `mix phoenix.server`
 
