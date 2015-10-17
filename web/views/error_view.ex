@@ -2,7 +2,7 @@ defmodule Blog.ErrorView do
   use Blog.Web, :view
 
   def render("404.html", _assigns) do
-    "Page not found"
+    "404"
   end
 
   def render("500.html", _assigns) do

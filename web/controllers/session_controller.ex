@@ -14,7 +14,11 @@ defmodule Blog.SessionController do
     user_params = params[ "user" ]
 
     # Produce :ok or :error
-    verified = Recaptcha.verify(conn.remote_ip, params["g-recaptcha-response"])
+    verified = if Mix.env == :prod do
+      Recaptcha.verify(conn.remote_ip, params["g-recaptcha-response"])
+    else
+      :ok
+    end
 
     if verified == :error do
       conn

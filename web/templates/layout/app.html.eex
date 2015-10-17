@@ -4,7 +4,7 @@
 <head>
   <!-- meta -->
   <meta charset='utf-8'>
-  <meta name="description" content="A blog about slacklining and coding">
+  <meta name="description" content="A blog about software, mostly.">
   <meta name="author" content="Rory Stephenson">
 
   <!-- Basic page data -->
@@ -18,13 +18,16 @@
   <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="<%= static_path(@conn, "/css/skeleton/normalize.css") %>">
-  <link rel="stylesheet" href="<%= static_path(@conn, "/css/skeleton/skeleton.css") %>">
+  <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
 
   <!-- Styles -->
   <style type='text/css'>
     h1, h2, h3, h4, h5, h6, .subtitle{
       font-family: 'Open Sans', sans-serif;
+    }
+
+    body{
+      background-color: #FDFDFD;
     }
 
     .post-title{
@@ -43,6 +46,7 @@
       font-size: 1.2em;
       line-height: 1.7em;
       word-spacing: 0.18em;
+      color: #333;
     }
 
     .actions{
@@ -83,7 +87,7 @@
 
   <div class='row col-header'>
     <div class='header'>
-      <span class="lightgrey">Rory Stephenson</span>
+      <%= link "Rory Stephenson", to: post_path(@conn, :index) %>
     </div>
   </div>
 
@@ -94,6 +98,19 @@
 </div>
 
 <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+
+<%= if Mix.env == :prod do %>
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-68958668-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+<%= end %>
 </body>
 </html>
-

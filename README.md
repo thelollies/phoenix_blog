@@ -16,16 +16,14 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ## TODO
  -  [x] Add captcha to login
- -  [ ] Tidy up nav etcc
- -  [ ] Write first blog post
- -  [ ] Add disqus
- -  [ ] Add google analytics
- -  [ ] Document creating user: Blog.Repo.insert( Blog.User.changeset(%Blog.User{}, %{ username: "", password: "", password_confirmation: "", role: ""} )
- -  [ ] tidy up dockerfile so it's just prod
+ -  [x] Add disqus
+ -  [x] Add google analytics
+ -  [x] Turn all secrets and env config to use env.
+ -  [x] Handle accessing post with non existant id (text or wrong id) or unpublished (404).
+ -  [x] Make captcha not used in dev.
+ -  [ ] Tidy up the Dockerfile so it's bare-bones prod requirements.
  -  [ ] use rds?
- -  [ ] turn all secrets and env config to use env
- -  [ ] [check the deployment guides](http://www.phoenixframework.org/docs/deployment).
- -  [ ] Make captcha not used in dev.
+ -  [ ] Check the [deployment guides](http://www.phoenixframework.org/docs/deployment).
  -  [ ] Determine why priv/assets was in .gitignore and move stuff if needed.
  -  [ ] deploy it
 

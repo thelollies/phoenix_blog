@@ -10,11 +10,19 @@ defmodule Blog.PostController do
 
     user = get_session( conn, :current_user )
 
-    base_query = from p in Post,
-     select: p
+    base_query = if user do
+      from p in Post,
+      order_by: p.display_date,
+      select: p
+    else
+      from p in Post,
+      where: p.publish_at <= ^Ecto.Date.utc,
+      order_by: p.display_date,
+      select: p
+    end
 
     posts = Repo.all(base_query)
-    render(conn, "index.html", posts: posts)
+    render(conn, "index.html", posts: posts, user: user)
   end
 
   def new(conn, _params) do
@@ -37,13 +45,32 @@ defmodule Blog.PostController do
   end
 
   def show(conn, %{"id" => id}) do
-    post = Repo.get!(Post, id)
-    # TODO prevent show of unpublished
-    # output = Path.join("posts", post.file)
-    #   |> File.read!
-    #   |> Earmark.to_html
-    put_layout(conn, "app.html")
-      |> render "show.html", post: post
+
+    # Check the id is numerical (otherwise Ecto will complain).
+    case Integer.parse( id ) do
+      { post_id , ""} ->
+
+        query = from p in Blog.Post, where: p.id == ^post_id
+
+        # Hide unpublished articles from unauthenticated users.
+        user = get_session( conn, :current_user )
+        if user == nil do
+          query = from p in query, where: p.publish_at <= ^Ecto.Date.utc
+        end
+
+        case Repo.one( query ) do
+          nil ->
+            # No such post
+            conn |> show_404
+          post ->
+            put_layout( conn, "app.html" )
+            |> render "show.html", post: post, user: user
+        end
+
+      _ -> false
+        # Not a numerical id.
+        conn |> show_404
+    end
   end
 
   def edit(conn, %{"id" => id}) do
@@ -82,5 +109,11 @@ defmodule Blog.PostController do
     markdown = Dict.get( params, "markdown" )
     content = Earmark.to_html( markdown )
     Dict.put( params, "content", content )
+  end
+
+  defp show_404( conn ) do
+    conn
+    |> put_status(:not_found)
+    |> render(Blog.ErrorView, "404.html")
   end
 end

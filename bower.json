@@ -13,13 +13,5 @@
     "bower_components",
     "test",
     "tests"
-  ],
-  "dependencies": {
-    "foundation": "~5.5.2"
-  },
-  "overrides": {
-    "modernizr": {
-      "main": "modernizr.js"
-    }
-  }
+  ]
 }

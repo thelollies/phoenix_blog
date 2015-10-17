@@ -56,6 +56,20 @@ config :logger, level: :info
 #     config :blog, Blog.Endpoint, server: true
 #
 
-# Finally import the config/prod.secret.exs
-# which should be versioned separately.
-import_config "prod.secret.exs"
+config :blog, Blog.Endpoint,
+  secret_key_base: System.get_env( "BLOG_SECRET_KEY_BASE" )
+
+# Configure your database
+config :blog, Blog.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: System.get_env( "BLOG_DATABASE_USERNAME" ),
+  password: System.get_env( "BLOG_DATABASE_PASSWORD" ),
+  database: System.get_env( "BLOG_DATABASE_NAME" ),
+  pool_size: System.get_env( "BLOG_DATABASE_POOL_SIZE" ),
+  hostname: System.get_env( "BLOG_DATABASE_HOSTNAME" ),
+  port: System.get_env( "BLOG_DATABASE_PORT" )
+
+config :recaptcha,
+    api_config: %{ verify_url: "https://www.google.com/recaptcha/api/siteverify",
+                 public_key: System.get_env( "BLOG_RECAPTCHA_PUBLIC_KEY" ),
+                 private_key: System.get_env( "BLOG_RECAPTCHA_PRIVATE_KEY" ) }

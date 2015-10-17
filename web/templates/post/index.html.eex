@@ -4,13 +4,16 @@
 
       <div class="article-entry">
         <div class="post-title" style="display: inline-block;">
+          <%= if post.publish_at > Ecto.Date.utc do "[WIP] " end %>
           <%= link post.title, to: post_path(@conn, :show, post) %>
         </div>
-        <div class="actions">
-          <%= link "Show", to: post_path(@conn, :show, post) %>&nbsp;
-          <%= link "Edit", to: post_path(@conn, :edit, post) %>&nbsp;
-          <%= link "Delete", to: post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %>
-        </div>
+        <%= if @user != nil do %>
+          <div class="actions">
+            <%= link "Show", to: post_path(@conn, :show, post) %>&nbsp;
+            <%= link "Edit", to: post_path(@conn, :edit, post) %>&nbsp;
+            <%= link "Delete", to: post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %>
+          </div>
+        <%= end %>
         <div class='subtitle'>
           <%= get_date(post.display_date) %>
         </div>
@@ -19,7 +22,6 @@
 
     <% end %>
 
-    <br>
-    <%= link "+ New post", to: post_path(@conn, :new) %>
+    <%= if @user != nil do link "+ New post", to: post_path(@conn, :new) end %>
   </div>
 </div>
