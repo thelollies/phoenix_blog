@@ -65,9 +65,9 @@ config :blog, Blog.Repo,
   username: System.get_env( "BLOG_DATABASE_USERNAME" ),
   password: System.get_env( "BLOG_DATABASE_PASSWORD" ),
   database: System.get_env( "BLOG_DATABASE_NAME" ),
-  pool_size: System.get_env( "BLOG_DATABASE_POOL_SIZE" ),
+  pool_size: elem( Integer.parse( System.get_env( "BLOG_DATABASE_POOL_SIZE" ) ), 0),
   hostname: System.get_env( "BLOG_DATABASE_HOSTNAME" ),
-  port: System.get_env( "BLOG_DATABASE_PORT" )
+  port: elem( Integer.parse( System.get_env( "BLOG_DATABASE_PORT" ) ), 0)
 
 config :recaptcha,
     api_config: %{ verify_url: "https://www.google.com/recaptcha/api/siteverify",
