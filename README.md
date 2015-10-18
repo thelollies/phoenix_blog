@@ -8,7 +8,7 @@ To start the blog:
   4. Copy dev.secret.exs.example to dev.secret.exs and fill it in.
   5. Set up an admin User for yourself:
     ```
-     Blog.Repo.insert(Blog.User.changeset(%User{}, %{ username: "rory", role: "admin", password: "password", password_confirmation: "password"}))
+     Blog.Repo.insert(Blog.User.changeset(%Blog.User{}, %{ username: "rory", role: "admin", password: "password", password_confirmation: "password"}))
      ```
   6. Start Phoenix endpoint with `mix phoenix.server`
 
@@ -24,9 +24,11 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
  -  [x] Determine why priv/assets was in .gitignore and move stuff if needed.
  -  [x] Tidy up the Dockerfile so it's bare-bones prod requirements.
  -  [x] Check the [deployment guides](http://www.phoenixframework.org/docs/deployment).
+ -  [x] use RDS
+ -  [x] Deploy it
+ -  [ ] Blog post URLs based on title (add permalink field which is - joined lowercase ascii representation and look up on that)
+ -  [ ] SSL
  -  [ ] Fix hard-coded integer environment variables.
- -  [ ] use rds?
- -  [ ] Deploy it
 
 ## Connecting to box
 
