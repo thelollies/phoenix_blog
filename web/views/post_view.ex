@@ -6,6 +6,6 @@ defmodule Blog.PostView do
   end
 
   def is_published?( post ) do
-    post.publish_at <= Ecto.Date.utc
+    Ecto.Date.compare( post.publish_at, Ecto.Date.utc ) != :lt
   end
 end

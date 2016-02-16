@@ -4,7 +4,7 @@
 
       <div class="article-entry">
         <div class="post-title" style="display: inline-block;">
-          <%= if post.publish_at > Ecto.Date.utc do "[WIP] " end %>
+          <%= if !is_published?( post ) do "[WIP] " end %>
           <%= link post.title, to: post_path(@conn, :show, post) %>
         </div>
         <%= if @user != nil do %>
