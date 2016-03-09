@@ -41,6 +41,7 @@
 </div>
 
 <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 <%= if Mix.env == :prod do %>
   <!-- Google Analytics -->
